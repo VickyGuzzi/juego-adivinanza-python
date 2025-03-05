@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.manos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mano {
+    border: 2px solid #000;
+    padding: 20px;
+    background-color: #f4f4f4;
+}

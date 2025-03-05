@@ -21,7 +21,6 @@ while puntos_jugador1 < cant_max_puntos and puntos_jugador2 < cant_max_puntos:
         puntos_jugador2 += 1
 
     print(f"Puntaje: {nombre1} {puntos_jugador1} - {nombre2} {puntos_jugador2}")
-
 if puntos_jugador1 > puntos_jugador2:
     print(f'¡{nombre1} ha ganado la partida!')
 else:

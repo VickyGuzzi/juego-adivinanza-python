@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza</title>
+    <style>
+        .mano {
+            margin-bottom: 20px;
+        }
+        .carta {
+            width: 100px;
+            height: 150px;
+            display: inline-block;
+            border: 2px solid #333;
+            margin: 5px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 18px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .jugador {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .turno {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .cartas-jugadas {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego de Adivinanza</h1>
+
+    <div class="turno">
+        <p>Turno actual: Jugador {{ jugador_actual }}</p>
+    </div>
+
+    {% for mano in manos %}
+    <div class="mano">
+        <div class="jugador">Jugador {{ loop.index }}:</div>
+        <form action="/jugada" method="post">
+            <input type="hidden" name="jugador" value="{{ loop.index }}">
+            <div>
+                {% for carta in mano %}
+                    <button type="submit" name="carta" value="{{ carta }}" class="carta">{{ carta }}</button>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+{% endfor %}
+
+
+    <div class="cartas-jugadas">
+        <h2>Cartas Jugadas:</h2>
+        <ul>
+            {% for carta in session['cartas_jugadas'] %}
+                <li>{{ carta }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
